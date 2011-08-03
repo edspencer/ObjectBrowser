@@ -1,0 +1,21 @@
+Javascript/JSON Object Browser component for ExtJS 4.x
+
+This component is derived from an ExtJS tree panel, and was built to easily
+parse through Javascript or JSON objects in a nested format. Each type of
+property (number/string/object/array) is represented by a unique icon, and
+arrays are also detected through a check for the 'length' property.
+
+The design uses a recursive function to break the object down into ExtJS
+records in an Ext.data.TreeStore, using an embedded key/value model. This model
+can be accessed through the ModelManager by referencing the component ID and
+appending 'Objects', such as 'ext-cmp-2001-Objects'. This avoids collision when
+multiple components are referenced in the same document if the component is
+overridden or modified.
+
+This component, source code, and other referenced data attached in this
+repository are released under the GPLv3 license for non-commercial use.
+Commercial use of this component is only authorized under written agreement
+between myself and interested entity.
+
+Ian Nelson - http://www.in2rd.com
+@in2rd on Twitter

@@ -1,0 +1,19 @@
+.tree-node-object {
+    background-image: url(../icons/object.png) !important;
+}
+
+.tree-node-string {
+    background-image: url(../icons/string.png) !important;
+}
+
+.tree-node-number {
+    background-image: url(../icons/number.png) !important;
+}
+
+.tree-node-array {
+    background-image: url(../icons/array.png) !important;
+}
+
+.tree-node-function {
+    background-image: url(../icons/function.png) !important;
+}
