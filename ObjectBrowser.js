@@ -23,11 +23,14 @@ Ext.define('Components.ObjectBrowser', {
 		});
     	
 		this.store = this.createStore(this.data);
-		Components.ObjectBrowser.superclass.initComponent.apply(this, arguments);
+		
+		return this.callParent(arguments);
 	},
     
 	createStore: function (data) {
-		Ext.define(this.id + '-Objects', {
+	    var modelName = this.id + '-Objects';
+	    
+		Ext.define(modelName, {
 			extend: 'Ext.data.Model',
 			fields: [{
 				name: 'key',
@@ -37,19 +40,18 @@ Ext.define('Components.ObjectBrowser', {
 				type: 'string'
 			}]
 		});
-
-    		var o = { text: 'root' };
-    		o.children = this.parseObject(data);
     	
-		var store = Ext.create('Ext.data.TreeStore', {
-        		folderSort: true,
-			model: this.id + '-Objects',
+        return Ext.create('Ext.data.TreeStore', {
+        	folderSort: true,
+			model: modelName,
 			proxy: {
 				type: 'memory',
-				data: o
+				data: { 
+            	    text: 'root',
+            	    children: this.parseObject(data)
+            	}
 			}
 		});
-		return store;
 	},
 
 	parseObject: function (o) {
